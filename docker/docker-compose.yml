@@ -1,0 +1,7 @@
+hierarchy_RDBMS_oracle:
+    image: wnameless/oracle-xe-11g-r2
+    environment:
+      - ORACLE_ALLOW_REMOTE=true
+      - ORACLE_PASSWORD_VERIFY=false
+    ports:
+     - "127.5.0.3:1521:1521"
