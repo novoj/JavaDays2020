@@ -1,7 +1,7 @@
 /* VYPIŠ KATEGORIE S ALESPOŇ JEDNÍM PRODUKTEM V PODKATEGORIÍCH SEKCE */
 
 /* 1.a hierarchy query */
-select TC.* from T_CATEGORY TC
+select distinct TC.* from T_CATEGORY TC
      left join T_PRODUCT_CATEGORY TPC on TC.CATEGORY_ID = TPC.CATEGORY_ID
      left join T_PRODUCT TP on TP.PRODUCT_ID = TPC.PRODUCT_ID
 where TP.PRODUCT_ID is not null
@@ -9,7 +9,7 @@ start with TC.CATEGORY_ID = 2
 connect by prior TC.CATEGORY_ID = TC.PARENT;
 
 /* 1.b join query */
-SELECT t3.*
+SELECT distinct t3.*
 FROM T_CATEGORY t1
          LEFT JOIN T_CATEGORY t2 ON t2.parent = t1.category_id
          LEFT JOIN T_CATEGORY t3 ON t3.parent = t2.category_id
@@ -19,14 +19,14 @@ where TP.PRODUCT_ID is not null
         and t1.CATEGORY_ID = 2;
 
 /* 2. like query */
-select TC.* from T_CATEGORY TC
+select distinct TC.* from T_CATEGORY TC
          left join T_PRODUCT_CATEGORY TPC on TC.CATEGORY_ID = TPC.CATEGORY_ID
          left join T_PRODUCT TP on TP.PRODUCT_ID = TPC.PRODUCT_ID
 where TP.PRODUCT_ID is not null
         and TC.PATH like '/0/1/2/%';
 
 /* 3.a MPTT query */
-select TC.* from T_CATEGORY TC
+select distinct TC.* from T_CATEGORY TC
      left join T_PRODUCT_CATEGORY TPC on TC.CATEGORY_ID = TPC.CATEGORY_ID
      left join T_PRODUCT TP on TP.PRODUCT_ID = TPC.PRODUCT_ID
 where TC.LEFT >= 3
@@ -34,7 +34,7 @@ where TC.LEFT >= 3
         and TP.PRODUCT_ID is not null;
 
 /* 3.b MPTT de-normalized query */
-select TC.* from T_CATEGORY TC
+select distinct TC.* from T_CATEGORY TC
      inner join T_PRODUCT TP on TC.LEFT = TP.LEFT and TC.RIGHT = TP.RIGHT
 where TP.LEFT > 3 and TP.RIGHT < 21052;
 
@@ -120,8 +120,8 @@ connect by prior TC.CATEGORY_ID = TC.PARENT;
 
 /* 2. like query */
 select TP.* from T_CATEGORY
-                     left join T_PRODUCT_CATEGORY TPC on T_CATEGORY.CATEGORY_ID = TPC.CATEGORY_ID
-                     left join T_PRODUCT TP on TP.PRODUCT_ID = TPC.PRODUCT_ID
+     left join T_PRODUCT_CATEGORY TPC on T_CATEGORY.CATEGORY_ID = TPC.CATEGORY_ID
+     left join T_PRODUCT TP on TP.PRODUCT_ID = TPC.PRODUCT_ID
 where TP.PRODUCT_ID is not null and T_CATEGORY.PATH like '/0/1/2/%';
 
 /* 3. MPTT query */
