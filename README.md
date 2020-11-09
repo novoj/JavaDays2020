@@ -1,6 +1,6 @@
 # JavaDays2020
 
-Demonstration code for JavaDays 2020 presentation.
+Demonstration code for [JavaDays 2020](https://bit.ly/javadays2020) presentation.
 
 ## Procedure
 
