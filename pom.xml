@@ -7,15 +7,16 @@
     <name>Test library for hierarchies in RDBMS</name>
 
     <properties>
-        <maven.compiler.source>1.9</maven.compiler.source>
-        <maven.compiler.target>1.9</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>cz.fg.oss</groupId>
-            <artifactId>lib_pmptt</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <groupId>one.edee.oss</groupId>
+            <artifactId>pmptt_core</artifactId>
+            <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>com.zaxxer</groupId>

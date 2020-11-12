@@ -1,9 +1,9 @@
 package com.fg.prototype.hierarchy;
 
-import cz.fg.oss.pmptt.PMPTT;
-import cz.fg.oss.pmptt.dao.memory.MemoryStorage;
-import cz.fg.oss.pmptt.model.Hierarchy;
-import cz.fg.oss.pmptt.model.HierarchyItem;
+import one.edee.oss.pmptt.PMPTT;
+import one.edee.oss.pmptt.dao.memory.MemoryStorage;
+import one.edee.oss.pmptt.model.Hierarchy;
+import one.edee.oss.pmptt.model.HierarchyItem;
 import lombok.extern.apachecommons.CommonsLog;
 
 import java.math.BigDecimal;
